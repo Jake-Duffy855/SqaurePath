@@ -1,5 +1,4 @@
-n = int(input("Number: "))
-
+import datetime
 class Node:
 
   def __init__(self, val, previous, prev):
@@ -54,19 +53,21 @@ def copy(arr):
 
 
 def path(n):
-  print("Starting... {}".format(n))
-  result = []
-  nodes = []
+	print("Starting... {}".format(n))
+	result = []
+	nodes = []
 
-  for i in range(1, n + 1):
-    nodes.append(Node(i, [], 0))
+	for i in range(1, n + 1):
+		nodes = [Node(i, [], 0)]
 
-  result = findNext(nodes)
-  if result != False:
-    print(result[0].getPath())
-  else:
-    print("No path!")
-  print()
+		result = findNext(nodes)
+		if result != False:
+			print(result[0].getPath())
+			return result[0].getPath()
 
+	print("No path!")
 
-path(n)
+for n in range(15,150):
+	path(n)
+	print(datetime.datetime.now())
+	print()
